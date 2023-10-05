@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() {
+    float salario_atual, salario_reajustado;
+    int tempo_de_servico;
+
+    printf("Digite o salário atual do funcionário: ");
+    scanf("%f", &salario_atual);
+
+    printf("Digite o tempo de serviço do funcionário (em anos): ");
+    scanf("%d", &tempo_de_servico);
+
+    if (salario_atual <= 500) {
+        salario_reajustado = salario_atual * 1.25;
+    } else if (salario_atual <= 1000) {
+        salario_reajustado = salario_atual * 1.20;
+    } else if (salario_atual <= 1500) {
+        salario_reajustado = salario_atual * 1.15;
+    } else if (salario_atual <= 2000) {
+        salario_reajustado = salario_atual * 1.10;
+    } else {
+        salario_reajustado = salario_atual;
+    }
+
+    if (tempo_de_servico < 1) {
+        salario_reajustado += 0;
+    } else if (tempo_de_servico <= 3) {
+        salario_reajustado += 100;
+    } else if (tempo_de_servico <= 6) {
+        salario_reajustado += 200;
+    } else if (tempo_de_servico <= 10) {
+        salario_reajustado += 300;
+    } else {
+        salario_reajustado += 500;
+    }
+
+    if (salario_reajustado == salario_atual) {
+        printf("O funcionário não tem direito a aumento.\n");
+    } else {
+        printf("O salário final reajustado é: %.2f\n", salario_reajustado);
+    }
+}
